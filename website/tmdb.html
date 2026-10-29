@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TMDB API Compliance & Documentation — MILTVPLUS</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">
+            <div class="nav-logo">M</div>
+            <span>MILTVPLUS</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="tmdb.html" class="active">TMDB Docs</a></li>
+            <li><a href="download.html">Download</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="terms.html">Terms</a></li>
+            <li><a href="support.html">Support</a></li>
+            <li><a href="download.html" class="nav-cta">Get v1.0.0</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1>TMDB API Compliance & Documentation</h1>
+        <p>Transparent standards regarding data usage, metadata architecture, and official attributions.</p>
+    </header>
+
+    <!-- Content Box -->
+    <main class="container" style="padding-top: 0;">
+        <div class="content-box">
+            <h2>Project Goals & Architecture</h2>
+            <p>MILTVPLUS is designed to provide users with a lightning-fast, beautifully crafted media discovery and cataloging experience on Android. By leveraging modern Jetpack Compose architecture, our objective is to organize, showcase, and explore cinematic media information in an intuitive, accessible manner.</p>
+
+            <h2>Metadata vs. Video Playback Separation</h2>
+            <p>A core architectural and compliance tenet of MILTVPLUS is the strict separation between metadata discovery and media streaming/playback:</p>
+            <ul>
+                <li><strong>Metadata & Imagery:</strong> All movie and TV show titles, overviews, release dates, genres, cast lists, posters, and backdrop imagery are fetched exclusively via the official <strong>The Movie Database (TMDb) API</strong>.</li>
+                <li><strong>No Embedded Video Hosting:</strong> MILTVPLUS does not host, store, stream, or distribute copyrighted video content, torrent files, or unauthorized media streams within the application.</li>
+                <li><strong>External Linking:</strong> When trailers or external streaming options are referenced, they link directly to authorized third-party platforms (such as YouTube for official trailers) or system-registered media intents.</li>
+            </ul>
+
+            <h2>Official TMDB Attribution Notice</h2>
+            <div style="background: rgba(30, 136, 229, 0.1); border-left: 4px solid var(--accent-cyan); padding: 1.5rem; border-radius: 0 8px 8px 0; margin: 1.5rem 0;">
+                <p style="color: var(--text-main); margin-bottom: 0; font-weight: 500;">
+                    <i class="fa-solid fa-circle-info" style="color: var(--accent-cyan); margin-right: 0.5rem;"></i>
+                    This product uses the TMDb API but is not endorsed or certified by TMDb. All movie and television metadata is licensed under CC BY-NC 4.0.
+                </p>
+            </div>
+
+            <h2>Developer & Integration Information</h2>
+            <p>MILTVPLUS integrates with TMDb REST endpoints securely. API requests are managed via Kotlin Coroutines and Retrofit with OkHttp caching layers to ensure efficient bandwidth consumption and adherence to rate-limiting guidelines.</p>
+            <ul>
+                <li><strong>API Version:</strong> TMDb API v3 / v4</li>
+                <li><strong>Data Formats:</strong> JSON responses parsed via Kotlin Serialization</li>
+                <li><strong>Caching Strategy:</strong> Local HTTP response caching with stale-while-revalidate policies</li>
+            </ul>
+
+            <h2>Compliance Commitment</h2>
+            <p>We continuously monitor and update our app logic to ensure full compliance with TMDb terms of service, Google Play developer policies, and international data regulations.</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="nav-brand" style="margin-bottom: 1rem;">
+                    <div class="nav-logo">M</div>
+                    <span>MILTVPLUS</span>
+                </div>
+                <p>The definitive media catalog and discovery portal powered by TMDB and modern Android architecture.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="tmdb.html">TMDB Docs</a></li>
+                    <li><a href="download.html">Download v1.0.0</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal & Privacy</h4>
+                <ul class="footer-links">
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Use</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul class="footer-links">
+                    <li><a href="support.html">Help Center</a></li>
+                    <li><a href="support.html#contact">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 MILTVPLUS. All rights reserved.</p>
+            <p>This product uses the TMDb API but is not endorsed or certified by TMDb.</p>
+        </div>
+    </footer>
+</body>
+</html>

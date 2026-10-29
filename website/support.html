@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support & Help Center — MILTVPLUS</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">
+            <div class="nav-logo">M</div>
+            <span>MILTVPLUS</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="tmdb.html">TMDB Docs</a></li>
+            <li><a href="download.html">Download</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="terms.html">Terms</a></li>
+            <li><a href="support.html" class="active">Support</a></li>
+            <li><a href="download.html" class="nav-cta">Get v1.0.0</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1>Help Center & Support</h1>
+        <p>Find answers to frequently asked questions or get in touch with our team.</p>
+    </header>
+
+    <!-- Content Box -->
+    <main class="container" style="padding-top: 0;">
+        <div class="content-box">
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">What is MILTVPLUS?</div>
+                <div class="faq-answer">MILTVPLUS is an advanced Android media catalog and discovery app built using Jetpack Compose and powered by the official TMDb API to explore trending movies, TV shows, and cast information.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How do I install the APK?</div>
+                <div class="faq-answer">Download the APK file from our <a href="download.html" style="color: var(--accent-cyan); text-decoration: none;">Download Page</a>, tap the file in your notifications or downloads folder, and allow installation from unknown sources if prompted by your Android device.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Does MILTVPLUS stream copyrighted movies?</div>
+                <div class="faq-answer">No. MILTVPLUS is strictly a media discovery and cataloging application. It does not host, stream, or distribute video content. All metadata is retrieved via the public TMDb API.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Which Android versions are supported?</div>
+                <div class="faq-answer">MILTVPLUS supports Android 8.0 (Oreo) through Android 15+, with optimized adaptive layouts for foldables and tablets.</div>
+            </div>
+
+            <h2 id="contact" style="margin-top: 3rem;">Contact Support</h2>
+            <p>Have a question, feature suggestion, or bug report? Fill out the form below and our team will get back to you promptly.</p>
+
+            <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Thank you for your message! Our support team will contact you soon.');">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" class="form-control" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" class="form-control" placeholder="Enter your email address" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" class="form-control" placeholder="Brief summary of your inquiry" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" class="form-control" placeholder="Describe your question or issue in detail..." required></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="border: none; cursor: pointer; width: 100%; justify-content: center;">
+                    <i class="fa-solid fa-paper-plane"></i> Send Message
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="nav-brand" style="margin-bottom: 1rem;">
+                    <div class="nav-logo">M</div>
+                    <span>MILTVPLUS</span>
+                </div>
+                <p>The definitive media catalog and discovery portal powered by TMDB and modern Android architecture.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="tmdb.html">TMDB Docs</a></li>
+                    <li><a href="download.html">Download v1.0.0</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal & Privacy</h4>
+                <ul class="footer-links">
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Use</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul class="footer-links">
+                    <li><a href="support.html">Help Center</a></li>
+                    <li><a href="support.html#contact">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 MILTVPLUS. All rights reserved.</p>
+            <p>This product uses the TMDb API but is not endorsed or certified by TMDb.</p>
+        </div>
+    </footer>
+</body>
+</html>
