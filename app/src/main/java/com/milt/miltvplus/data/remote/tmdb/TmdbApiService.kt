@@ -82,7 +82,7 @@ open class TmdbApiService(
 
     open suspend fun getTrendingTvShows(apiKeyOverride: String? = null): Result<List<TmdbTvDto>> = withContext(Dispatchers.IO) {
         try {
-            val key = apiKeyOverride?.takeIf { it.isNotBlank() } ?: apiKeyProvider()
+            val key = resolveApiKey(apiKeyOverride)
             val urlString = "$baseUrl/trending/tv/day?api_key=$key"
             val responseString = executeGet(urlString)
             val json = JSONObject(responseString)
@@ -113,7 +113,7 @@ open class TmdbApiService(
 
     open suspend fun searchMovies(query: String, apiKeyOverride: String? = null): Result<List<TmdbMovieDto>> = withContext(Dispatchers.IO) {
         try {
-            val key = apiKeyOverride?.takeIf { it.isNotBlank() } ?: apiKeyProvider()
+            val key = resolveApiKey(apiKeyOverride)
             val encodedQuery = URLEncoder.encode(query, "UTF-8")
             val urlString = "$baseUrl/search/movie?api_key=$key&query=$encodedQuery"
             val responseString = executeGet(urlString)
@@ -142,7 +142,7 @@ open class TmdbApiService(
 
     open suspend fun searchTvShows(query: String, apiKeyOverride: String? = null): Result<List<TmdbTvDto>> = withContext(Dispatchers.IO) {
         try {
-            val key = apiKeyOverride?.takeIf { it.isNotBlank() } ?: apiKeyProvider()
+            val key = resolveApiKey(apiKeyOverride)
             val encodedQuery = URLEncoder.encode(query, "UTF-8")
             val urlString = "$baseUrl/search/tv?api_key=$key&query=$encodedQuery"
             val responseString = executeGet(urlString)
