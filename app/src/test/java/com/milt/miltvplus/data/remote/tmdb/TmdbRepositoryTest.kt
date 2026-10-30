@@ -60,6 +60,17 @@ class TmdbRepositoryTest {
     }
 
     @Test
+    fun missingApiKeyFailsWithoutPretendingToConnect() = runTest {
+        val apiService = TmdbApiService { "" }
+        val result = apiService.getTrendingMovies()
+        assertEquals(true, result.isFailure)
+        assertEquals(
+            "TMDB_API_KEY no está configurada. Configura la clave de TMDB para habilitar el catálogo en línea.",
+            result.exceptionOrNull()?.message
+        )
+    }
+
+    @Test
     fun testImageUrlHelpers() {
         val apiService = TmdbApiService { "test_key" }
         val posterUrl = apiService.getImageUrl("/abc123.jpg")
