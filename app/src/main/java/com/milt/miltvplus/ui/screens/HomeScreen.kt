@@ -37,7 +37,6 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -55,7 +54,6 @@ import com.milt.miltvplus.ui.components.MediaCard
 import com.milt.miltvplus.ui.components.SectionHeader
 import com.milt.miltvplus.ui.state.MainUiState
 import com.milt.miltvplus.ui.theme.AccentCyan
-import com.milt.miltvplus.ui.theme.AccentLime
 import com.milt.miltvplus.ui.theme.AccentOrange
 import com.milt.miltvplus.ui.theme.CardSurfaceBorder
 import com.milt.miltvplus.ui.theme.CardSurfaceDark
@@ -227,7 +225,7 @@ fun HomeScreen(
                     )
                     Spacer(modifier = Modifier.width(4.dp))
                     Text(
-                        text = "${currentHeroItem.rating}",
+                        text = currentHeroItem.rating.toString(),
                         color = TextPrimary,
                         fontSize = 13.sp,
                         fontWeight = FontWeight.Bold
