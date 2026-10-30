@@ -40,7 +40,7 @@ class TmdbRepository(
                         backdropUrl = apiService.getBackdropUrl(dto.backdrop_path),
                         category = MediaCategory.MOVIE,
                         rating = dto.vote_average,
-                        streamUrl = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+                        streamUrl = "",
                         isFavorite = false,
                         isFeatured = false,
                         ageRating = if (dto.adult) "18+" else "13+"
@@ -74,7 +74,7 @@ class TmdbRepository(
                         backdropUrl = apiService.getBackdropUrl(dto.backdrop_path),
                         category = MediaCategory.SERIES,
                         rating = dto.vote_average,
-                        streamUrl = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
+                        streamUrl = "",
                         seasonsCount = dto.number_of_seasons ?: 1,
                         episodesCount = dto.number_of_episodes ?: 10,
                         isFavorite = false,
@@ -111,7 +111,7 @@ class TmdbRepository(
                         backdropUrl = apiService.getBackdropUrl(dto.backdrop_path),
                         category = MediaCategory.MOVIE,
                         rating = dto.vote_average,
-                        streamUrl = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+                        streamUrl = ""
                     )
                 )
             }
@@ -131,7 +131,7 @@ class TmdbRepository(
                         backdropUrl = apiService.getBackdropUrl(dto.backdrop_path),
                         category = MediaCategory.SERIES,
                         rating = dto.vote_average,
-                        streamUrl = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4"
+                        streamUrl = ""
                     )
                 )
             }
