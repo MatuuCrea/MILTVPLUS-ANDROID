@@ -23,12 +23,20 @@ open class TmdbApiService(
                 }
             }
             ?: System.getProperty("tmdb.api.key")
-            ?: "mock_tmdb_api_key_for_testing"
+            ?: ""
     }
 ) {
     private val baseUrl = "https://api.themoviedb.org/3"
     private val imageBaseUrl = "https://image.tmdb.org/t/p/w500"
     private val backdropBaseUrl = "https://image.tmdb.org/t/p/w1280"
+
+    private fun resolveApiKey(override: String?): String {
+        val key = override?.takeIf { it.isNotBlank() } ?: apiKeyProvider()
+        require(key.isNotBlank()) {
+            "TMDB_API_KEY no está configurada. Configura la clave de TMDB para habilitar el catálogo en línea."
+        }
+        return key
+    }
 
     open fun getImageUrl(posterPath: String?): String {
         if (posterPath.isNullOrBlank()) return "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=600&auto=format&fit=crop"
@@ -42,7 +50,7 @@ open class TmdbApiService(
 
     open suspend fun getTrendingMovies(apiKeyOverride: String? = null): Result<List<TmdbMovieDto>> = withContext(Dispatchers.IO) {
         try {
-            val key = apiKeyOverride?.takeIf { it.isNotBlank() } ?: apiKeyProvider()
+            val key = resolveApiKey(apiKeyOverride)
             val urlString = "$baseUrl/trending/movie/day?api_key=$key"
             val responseString = executeGet(urlString)
             val json = JSONObject(responseString)
