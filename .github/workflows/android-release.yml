@@ -71,6 +71,15 @@ jobs:
       run: |
         keytool -list -v -keystore miltvplus-release.jks -alias "$ANDROID_KEY_ALIAS" -storepass "$ANDROID_KEYSTORE_PASSWORD"
 
+    - name: Validate TMDB API key for production release
+      env:
+        TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
+      run: |
+        if [ -z "$TMDB_API_KEY" ]; then
+          echo "Missing secret: TMDB_API_KEY. Refusing to package a release without live TMDB configuration."
+          exit 1
+        fi
+
     - name: Run unit tests
       run: ./gradlew :app:testDebugUnitTest
 
