@@ -28,6 +28,8 @@ android {
         versionName = "1.11.95"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        val tmdbKey = project.findProperty("TMDB_API_KEY") as? String ?: System.getenv("TMDB_API_KEY") ?: "mock_tmdb_api_key_for_testing"
+        buildConfigField("String", "TMDB_API_KEY", "\"$tmdbKey\"")
     }
 
     signingConfigs {
@@ -63,6 +65,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 

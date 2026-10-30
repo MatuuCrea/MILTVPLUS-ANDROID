@@ -13,6 +13,15 @@ import java.net.URLEncoder
 open class TmdbApiService(
     private val apiKeyProvider: () -> String = {
         System.getenv("TMDB_API_KEY")
+            ?: run {
+                try {
+                    val clazz = Class.forName("com.milt.miltvplus.BuildConfig")
+                    val field = clazz.getField("TMDB_API_KEY")
+                    field.get(null) as? String
+                } catch (e: Exception) {
+                    null
+                }
+            }
             ?: System.getProperty("tmdb.api.key")
             ?: "mock_tmdb_api_key_for_testing"
     }
