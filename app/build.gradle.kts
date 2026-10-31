@@ -48,9 +48,13 @@ android {
             if (keystorePropertiesFile.exists() && keystoreProperties.containsKey("storeFile")) {
                 signingConfig = signingConfigs.getByName("release")
             } else {
-                val isBuildingRelease = project.gradle.startParameter.taskNames.any { it.contains("Release", ignoreCase = true) || it.contains("Bundle", ignoreCase = true) }
-                if (isBuildingRelease) {
-                    throw GradleException("ERROR: Production release keystore (keystore.properties) is missing. Release distribution builds cannot use debug signing.")
+                val isPackagingRelease = project.gradle.startParameter.taskNames.any {
+                    it.contains("assembleRelease", ignoreCase = true) ||
+                    it.contains("bundleRelease", ignoreCase = true) ||
+                    it.contains("packageRelease", ignoreCase = true)
+                }
+                if (isPackagingRelease) {
+                    throw GradleException("ERROR: Production release keystore (keystore.properties) is missing. Release distribution packages cannot use debug signing.")
                 }
             }
             optimization {
