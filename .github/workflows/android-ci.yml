@@ -2,7 +2,7 @@ name: Android CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "fix/production-tmdb-key-validation" ]
   pull_request:
     branches: [ "main" ]
   workflow_dispatch:
@@ -30,6 +30,12 @@ jobs:
 
     - name: Build Debug APK
       run: ./gradlew :app:assembleDebug
+
+    - name: Compile Release Sources (CI Check)
+      run: ./gradlew :app:compileReleaseKotlin
+
+    - name: Run Lint
+      run: ./gradlew :app:lintDebug
 
     - name: Upload Debug APK artifact
       uses: actions/upload-artifact@v4
