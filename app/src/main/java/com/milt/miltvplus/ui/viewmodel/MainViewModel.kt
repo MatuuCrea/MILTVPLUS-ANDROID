@@ -36,11 +36,20 @@ class MainViewModel(
 
     init {
         observeDataSources()
-        runCatching {
+        try {
             syncRemotePlaylist("https://iptv-org.github.io/iptv/index.m3u", null)
+        } catch (e: kotlinx.coroutines.CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            android.util.Log.e("MainViewModel", "Error syncing remote playlist on init", e)
         }
-        runCatching {
+
+        try {
             loadTmdbData()
+        } catch (e: kotlinx.coroutines.CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            android.util.Log.e("MainViewModel", "Error loading TMDB data on init", e)
         }
     }
 

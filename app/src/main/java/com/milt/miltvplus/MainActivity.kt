@@ -51,8 +51,12 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        runCatching {
+        try {
             SupabaseClientManager.initializeConnection(applicationContext)
+        } catch (e: kotlinx.coroutines.CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            android.util.Log.e("MainActivity", "Error initializing Supabase connection", e)
         }
         setContent {
             MILTVPLUSTheme {
