@@ -51,7 +51,9 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        SupabaseClientManager.initializeConnection()
+        runCatching {
+            SupabaseClientManager.initializeConnection(applicationContext)
+        }
         setContent {
             MILTVPLUSTheme {
                 MainAppScreen()

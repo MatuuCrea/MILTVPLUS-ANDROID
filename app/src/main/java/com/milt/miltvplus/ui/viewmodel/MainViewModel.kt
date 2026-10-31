@@ -36,8 +36,12 @@ class MainViewModel(
 
     init {
         observeDataSources()
-        syncRemotePlaylist("https://iptv-org.github.io/iptv/index.m3u", null)
-        loadTmdbData()
+        runCatching {
+            syncRemotePlaylist("https://iptv-org.github.io/iptv/index.m3u", null)
+        }
+        runCatching {
+            loadTmdbData()
+        }
     }
 
     fun loadTmdbData() {
