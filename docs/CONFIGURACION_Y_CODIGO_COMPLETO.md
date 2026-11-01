@@ -53,7 +53,7 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         val tmdbKey = project.findProperty("TMDB_API_KEY") as? String
             ?: System.getenv("TMDB_API_KEY")
-            ?: "bf51372eaaf3d4166bf43f025ad0181b"
+            ?: ""
         buildConfigField("String", "TMDB_API_KEY", "\"$tmdbKey\"")
     }
 
@@ -629,6 +629,10 @@ class MainViewModel(
 ---
 
 ## 6. Workflows de CI/CD para GitHub Actions (`.github/workflows/android-ci.yml`)
+
+> **Nota de Seguridad y CI/CD**:
+> - `compileReleaseKotlin`: Tarea ejecutada en la integración continua (CI) para validar estáticamente la sintaxis y compilación del código Release en GitHub Actions sin exponer archivos o contraseñas del Keystore de producción.
+> - `assembleRelease` y `bundleRelease`: Tareas de empaquetado y firma V2 que requieren `keystore.properties` para generar los binarios oficiales distribuidos (`app-release.apk` y `app-release.aab`).
 
 ```yaml
 name: Android CI
