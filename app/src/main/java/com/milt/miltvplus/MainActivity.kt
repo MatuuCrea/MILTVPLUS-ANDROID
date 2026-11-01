@@ -5,7 +5,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -204,28 +203,13 @@ fun MainAppScreen(
                                 )
                             }
 
-                            else -> {
-                                Box(
-                                    modifier = Modifier
-                                        .fillMaxSize()
-                                        .background(DarkNavyBackground)
-                                        .padding(24.dp),
-                                    contentAlignment = Alignment.Center
-                                ) {
-                                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                                        Text(
-                                            text = currentDestination.section.displayName,
-                                            color = TextPrimary,
-                                            fontSize = 24.sp,
-                                            fontWeight = FontWeight.Bold
-                                        )
-                                        Text(
-                                            text = "Sección disponible en el ecosistema MILTVPLUS",
-                                            color = TextMuted,
-                                            fontSize = 14.sp
-                                        )
-                                    }
-                                }
+                            NavigationSection.FAVORITES, NavigationSection.SEARCH -> {
+                                HomeScreen(
+                                    uiState = uiState,
+                                    onPlayItem = { viewModel.navigateToPlayer(it) },
+                                    onItemDetails = { viewModel.navigateToDetails(it) },
+                                    onFavoriteToggle = { viewModel.toggleFavorite(it) }
+                                )
                             }
                         }
                     }

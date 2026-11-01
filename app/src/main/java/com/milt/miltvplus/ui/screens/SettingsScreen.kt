@@ -95,16 +95,20 @@ import com.milt.miltvplus.ui.theme.TextSecondary
 import com.milt.miltvplus.ui.viewmodel.MainViewModel
 
 enum class SettingsTab(val displayName: String, val icon: ImageVector) {
+    ACCOUNT("Cuenta", Icons.Default.AccountCircle),
+    GENERAL("General", Icons.Default.Info),
+    IMAGE("Imagen", Icons.Default.Hd),
+    AUDIO("Audio", Icons.Default.PlayCircle),
+    SUBTITLES("Subtítulos", Icons.Default.Language),
+    LANGUAGE("Idioma", Icons.Default.Language),
+    REGION("Región", Icons.Default.Language),
     APPEARANCE("Apariencia", Icons.Default.Palette),
     PLAYBACK("Reproducción", Icons.Default.PlayCircle),
-    LIVE_TV("TV en Vivo", Icons.Default.Tv),
-    ACCOUNT("Cuenta y Sesión", Icons.Default.AccountCircle),
-    ADULT("Adultos +18", Icons.Default.Lock),
-    NOTIFICATIONS("Notificaciones", Icons.Default.Notifications),
-    LANGUAGE_REGION("Idioma y Región", Icons.Default.Language),
-    STORAGE("Almacenamiento", Icons.Default.CleaningServices),
+    CONNECTIVITY("Conectividad", Icons.Default.CloudDone),
     ACCESSIBILITY("Accesibilidad", Icons.Default.Accessibility),
-    DIAGNOSTICS("Diagnóstico", Icons.Default.Info)
+    PRIVACY("Privacidad", Icons.Default.Lock),
+    SECURITY("Seguridad (+18)", Icons.Default.Lock),
+    NOTIFICATIONS("Notificaciones", Icons.Default.Notifications)
 }
 
 @Composable
@@ -229,6 +233,72 @@ fun SettingsScreen(
                     }
 
                     when (selectedTab) {
+                        SettingsTab.ACCOUNT -> {
+                            AccountPanel(
+                                settings = uiState.userSettings,
+                                onUpdateProfile = { name, email -> viewModel?.updateProfileInfo(name, email) },
+                                onToggleAuthState = { viewModel?.toggleAuthState(it) }
+                            )
+                        }
+
+                        SettingsTab.GENERAL -> {
+                            DiagnosticsPanel(
+                                settings = uiState.userSettings,
+                                tmdbConnected = uiState.tmdbConnected,
+                                isUsingFallback = uiState.isUsingFallback,
+                                onReset = {
+                                    viewModel?.resetPreferences()
+                                    Toast.makeText(context, "Ajustes restablecidos a valores de fábrica", Toast.LENGTH_SHORT).show()
+                                }
+                            )
+                        }
+
+                        SettingsTab.IMAGE -> {
+                            PlaybackPanel(
+                                settings = uiState.userSettings,
+                                onUpdateQuality = { viewModel?.updateDefaultQuality(it) },
+                                onToggleAutoPlay = { viewModel?.toggleAutoPlay(it) },
+                                onToggleSubtitles = { viewModel?.toggleSubtitles(it) },
+                                onUpdateAspectRatio = { viewModel?.updateAspectRatio(it) }
+                            )
+                        }
+
+                        SettingsTab.AUDIO -> {
+                            PlaybackPanel(
+                                settings = uiState.userSettings,
+                                onUpdateQuality = { viewModel?.updateDefaultQuality(it) },
+                                onToggleAutoPlay = { viewModel?.toggleAutoPlay(it) },
+                                onToggleSubtitles = { viewModel?.toggleSubtitles(it) },
+                                onUpdateAspectRatio = { viewModel?.updateAspectRatio(it) }
+                            )
+                        }
+
+                        SettingsTab.SUBTITLES -> {
+                            PlaybackPanel(
+                                settings = uiState.userSettings,
+                                onUpdateQuality = { viewModel?.updateDefaultQuality(it) },
+                                onToggleAutoPlay = { viewModel?.toggleAutoPlay(it) },
+                                onToggleSubtitles = { viewModel?.toggleSubtitles(it) },
+                                onUpdateAspectRatio = { viewModel?.updateAspectRatio(it) }
+                            )
+                        }
+
+                        SettingsTab.LANGUAGE -> {
+                            LanguageRegionPanel(
+                                settings = uiState.userSettings,
+                                onUpdateLanguage = { viewModel?.updateAppLanguage(it) },
+                                onUpdateRegion = { viewModel?.updateContentRegion(it) }
+                            )
+                        }
+
+                        SettingsTab.REGION -> {
+                            LanguageRegionPanel(
+                                settings = uiState.userSettings,
+                                onUpdateLanguage = { viewModel?.updateAppLanguage(it) },
+                                onUpdateRegion = { viewModel?.updateContentRegion(it) }
+                            )
+                        }
+
                         SettingsTab.APPEARANCE -> {
                             AppearancePanel(
                                 userSettings = uiState.userSettings,
@@ -251,7 +321,7 @@ fun SettingsScreen(
                             )
                         }
 
-                        SettingsTab.LIVE_TV -> {
+                        SettingsTab.CONNECTIVITY -> {
                             LiveTvSettingsPanel(
                                 settings = uiState.userSettings,
                                 onUpdatePlaylistUrl = { viewModel?.updatePlaylistUrl(it) },
@@ -261,15 +331,24 @@ fun SettingsScreen(
                             )
                         }
 
-                        SettingsTab.ACCOUNT -> {
-                            AccountPanel(
+                        SettingsTab.ACCESSIBILITY -> {
+                            AccessibilityPanel(
                                 settings = uiState.userSettings,
-                                onUpdateProfile = { name, email -> viewModel?.updateProfileInfo(name, email) },
-                                onToggleAuthState = { viewModel?.toggleAuthState(it) }
+                                onToggleHighContrast = { viewModel?.toggleHighContrast(it) },
+                                onUpdateDpadSize = { viewModel?.updateDpadFocusHaloSize(it) }
                             )
                         }
 
-                        SettingsTab.ADULT -> {
+                        SettingsTab.PRIVACY -> {
+                            AdultSettingsPanel(
+                                userSettings = uiState.userSettings,
+                                onToggleParentalControl = onToggleParentalControl,
+                                onChangePinClick = { isChangePinDialogOpen = true },
+                                onToggleAutoLockOnBackground = { viewModel?.toggleAutoLockOnBackground(it) }
+                            )
+                        }
+
+                        SettingsTab.SECURITY -> {
                             AdultSettingsPanel(
                                 userSettings = uiState.userSettings,
                                 onToggleParentalControl = onToggleParentalControl,
@@ -283,44 +362,6 @@ fun SettingsScreen(
                                 settings = uiState.userSettings,
                                 onToggleSystem = { viewModel?.toggleSystemNotifications(it) },
                                 onToggleSports = { viewModel?.toggleLiveSportsAlerts(it) }
-                            )
-                        }
-
-                        SettingsTab.LANGUAGE_REGION -> {
-                            LanguageRegionPanel(
-                                settings = uiState.userSettings,
-                                onUpdateLanguage = { viewModel?.updateAppLanguage(it) },
-                                onUpdateRegion = { viewModel?.updateContentRegion(it) }
-                            )
-                        }
-
-                        SettingsTab.STORAGE -> {
-                            StoragePanel(
-                                cacheSizeBytes = uiState.userSettings.cacheSizeBytes,
-                                onClearCache = {
-                                    viewModel?.clearCache()
-                                    Toast.makeText(context, "Caché liberada correctamente", Toast.LENGTH_SHORT).show()
-                                }
-                            )
-                        }
-
-                        SettingsTab.ACCESSIBILITY -> {
-                            AccessibilityPanel(
-                                settings = uiState.userSettings,
-                                onToggleHighContrast = { viewModel?.toggleHighContrast(it) },
-                                onUpdateDpadSize = { viewModel?.updateDpadFocusHaloSize(it) }
-                            )
-                        }
-
-                        SettingsTab.DIAGNOSTICS -> {
-                            DiagnosticsPanel(
-                                settings = uiState.userSettings,
-                                tmdbConnected = uiState.tmdbConnected,
-                                isUsingFallback = uiState.isUsingFallback,
-                                onReset = {
-                                    viewModel?.resetPreferences()
-                                    Toast.makeText(context, "Ajustes restablecidos a valores de fábrica", Toast.LENGTH_SHORT).show()
-                                }
                             )
                         }
                     }

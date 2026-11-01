@@ -6,8 +6,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 
 class MusicRepository {
 
-    private val sampleAudioStreamUrl = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4"
-
     private val playlists = MutableStateFlow(
         listOf(
             MusicPlaylist(
@@ -17,7 +15,7 @@ class MusicRepository {
                 songCount = 50,
                 coverUrl = "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&auto=format&fit=crop",
                 artistOrDescription = "The hottest global tracks right now on Spotify & Apple Music",
-                streamUrl = sampleAudioStreamUrl,
+                streamUrl = "", // Stream de reproducción legítimo no configurado en demo
                 isFavorite = true,
                 isFeatured = true
             ),
@@ -28,7 +26,7 @@ class MusicRepository {
                 songCount = 42,
                 coverUrl = "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600&auto=format&fit=crop",
                 artistOrDescription = "Bad Bunny, Karol G, Feid, Bizarrap & Shakira hits",
-                streamUrl = sampleAudioStreamUrl,
+                streamUrl = "",
                 isFavorite = true,
                 isFeatured = false
             ),
@@ -39,7 +37,7 @@ class MusicRepository {
                 songCount = 65,
                 coverUrl = "https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?w=600&auto=format&fit=crop",
                 artistOrDescription = "Guns N' Roses, Queen, AC/DC, Nirvana, Soda Stereo",
-                streamUrl = sampleAudioStreamUrl,
+                streamUrl = "",
                 isFavorite = false
             ),
             MusicPlaylist(
@@ -49,28 +47,8 @@ class MusicRepository {
                 songCount = 38,
                 coverUrl = "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&auto=format&fit=crop",
                 artistOrDescription = "Duki, Travis Scott, Drake, Kendrick Lamar & Trueno",
-                streamUrl = sampleAudioStreamUrl,
+                streamUrl = "",
                 isFavorite = true
-            ),
-            MusicPlaylist(
-                id = "mus_5",
-                title = "Electronic Beats & Chill",
-                category = "EDM / House",
-                songCount = 30,
-                coverUrl = "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&auto=format&fit=crop",
-                artistOrDescription = "David Guetta, Calvin Harris, Tiësto & Martin Garrix",
-                streamUrl = sampleAudioStreamUrl,
-                isFavorite = false
-            ),
-            MusicPlaylist(
-                id = "mus_6",
-                title = "Smooth Jazz Lounge",
-                category = "Jazz & Ambient",
-                songCount = 35,
-                coverUrl = "https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=600&auto=format&fit=crop",
-                artistOrDescription = "Relaxing jazz tunes for working, reading and chilling",
-                streamUrl = sampleAudioStreamUrl,
-                isFavorite = false
             )
         )
     )
