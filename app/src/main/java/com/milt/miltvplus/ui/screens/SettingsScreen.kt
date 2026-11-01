@@ -144,7 +144,7 @@ fun SettingsScreen(
                 Modifier.fillMaxSize()
             }
         ) {
-            // Left Settings Navigation Sidebar (10 Tabs)
+            // Left Settings Navigation Sidebar (14 Categories)
             Column(
                 modifier = Modifier
                     .width(if (isNarrow) 220.dp else 250.dp)
