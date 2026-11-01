@@ -31,7 +31,7 @@ Se completó la auditoría del proyecto **MILTVPLUS Android** (versión `1.11.95
 - **Ruta del Artefacto**: `app/build/outputs/apk/release/app-release.apk`
 - **Nombre de Archivo Oficial**: `miltvplus-v1.11.95.apk`
 - **Tamaño Exacto**: `5,892,642 bytes` (5.89 MB)
-- **Hash SHA-256 Oficial**: `5C39F50E09FACF4A1ADA7BC8741A4FA22128F651EEA02E9B129D63EBECBF96E2`
+- **Hash SHA-256 Oficial**: `8651F77A905AA22EF3DD9272A42429E4878F1A6E8957971E9590D35A916E8DF7`
 - **Firma V2 Scheme**: Verificada con `apksigner verify --verbose --print-certs` (`Verified using v2 scheme: true`).
 - **Certificado de Producción**: `CN=MILTVPLUS Production, OU=Mobile, O=MiltvPlus, L=Buenos Aires, ST=BA, C=AR` (`2BFD621E53C3826FF16798BCFAFC2FC43AA293E01B8B4B8730C0ED3A635D2497`).
 
