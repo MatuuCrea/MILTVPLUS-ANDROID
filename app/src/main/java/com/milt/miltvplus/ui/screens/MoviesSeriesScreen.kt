@@ -50,27 +50,25 @@ fun MoviesSeriesScreen(
 ) {
     val scrollState = rememberScrollState()
 
-    val sampleStream = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
-
     val moviesList = uiState.movies.ifEmpty {
         listOf(
-            MediaItem("m1", "Oppenheimer", "The story of J. Robert Oppenheimer.", "Drama / Historia", 2023, "3h 00m", "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=600&auto=format&fit=crop", "", MediaCategory.MOVIE, 8.9, sampleStream, ageRating = "16+"),
-            MediaItem("m2", "Barbie", "Barbie and Ken in Barbie Land.", "Comedia / Fantasía", 2023, "1h 54m", "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&auto=format&fit=crop", "", MediaCategory.MOVIE, 7.3, sampleStream, ageRating = "13+"),
-            MediaItem("m3", "The Batman", "Gotham serial killer mystery.", "Acción / Crimen", 2022, "2h 56m", "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=600&auto=format&fit=crop", "", MediaCategory.MOVIE, 7.8, sampleStream, ageRating = "16+"),
-            MediaItem("m4", "Top Gun: Maverick", "Naval aviator Pete Mitchell.", "Acción / Drama", 2022, "2h 10m", "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=600&auto=format&fit=crop", "", MediaCategory.MOVIE, 8.3, sampleStream),
-            MediaItem("m5", "Avatar: El camino del agua", "Jake Sully and Pandora.", "Sci-Fi / Aventura", 2022, "3h 12m", "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=600&auto=format&fit=crop", "", MediaCategory.MOVIE, 7.6, sampleStream),
-            MediaItem("m6", "Interstellar", "Space exploration for humanity.", "Sci-Fi / Drama", 2014, "2h 49m", "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&auto=format&fit=crop", "", MediaCategory.MOVIE, 8.7, sampleStream)
+            MediaItem("m1", "Oppenheimer", "The story of J. Robert Oppenheimer.", "Drama / Historia", 2023, "3h 00m", "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=600&auto=format&fit=crop", "", MediaCategory.MOVIE, 8.9, "", ageRating = "16+"),
+            MediaItem("m2", "Barbie", "Barbie and Ken in Barbie Land.", "Comedia / Fantasía", 2023, "1h 54m", "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&auto=format&fit=crop", "", MediaCategory.MOVIE, 7.3, "", ageRating = "13+"),
+            MediaItem("m3", "The Batman", "Gotham serial killer mystery.", "Acción / Crimen", 2022, "2h 56m", "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=600&auto=format&fit=crop", "", MediaCategory.MOVIE, 7.8, "", ageRating = "16+"),
+            MediaItem("m4", "Top Gun: Maverick", "Naval aviator Pete Mitchell.", "Acción / Drama", 2022, "2h 10m", "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=600&auto=format&fit=crop", "", MediaCategory.MOVIE, 8.3, ""),
+            MediaItem("m5", "Avatar: El camino del agua", "Jake Sully and Pandora.", "Sci-Fi / Aventura", 2022, "3h 12m", "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=600&auto=format&fit=crop", "", MediaCategory.MOVIE, 7.6, ""),
+            MediaItem("m6", "Interstellar", "Space exploration for humanity.", "Sci-Fi / Drama", 2014, "2h 49m", "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&auto=format&fit=crop", "", MediaCategory.MOVIE, 8.7, "")
         )
     }
 
     val seriesList = uiState.series.ifEmpty {
         listOf(
-            MediaItem("s1", "The Last of Us", "Global post-apocalyptic journey.", "Acción / Drama", 2023, "1 Temporada", "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=600&auto=format&fit=crop", "", MediaCategory.SERIES, 8.8, sampleStream, ageRating = "18+"),
-            MediaItem("s2", "Breaking Bad", "Chemistry teacher turns meth maker.", "Crimen / Drama", 2008, "5 Temporadas", "https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=600&auto=format&fit=crop", "", MediaCategory.SERIES, 9.5, sampleStream, ageRating = "18+"),
-            MediaItem("s3", "Juego de Tronos", "Nine noble families fight for Westeros.", "Fantasía / Drama", 2011, "8 Temporadas", "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&auto=format&fit=crop", "", MediaCategory.SERIES, 9.2, sampleStream),
-            MediaItem("s4", "Stranger Things", "Hawkins secret experiments and Upside Down.", "Sci-Fi / Terror", 2016, "4 Temporadas", "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=600&auto=format&fit=crop", "", MediaCategory.SERIES, 8.7, sampleStream),
-            MediaItem("s5", "The Walking Dead", "Zombie apocalypse survivors.", "Terror / Drama", 2010, "11 Temporadas", "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=600&auto=format&fit=crop", "", MediaCategory.SERIES, 8.1, sampleStream),
-            MediaItem("s6", "La Casa del Dragón", "Targaryen family civil war.", "Acción / Drama", 2022, "2 Temporadas", "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=600&auto=format&fit=crop", "", MediaCategory.SERIES, 8.5, sampleStream)
+            MediaItem("s1", "The Last of Us", "Global post-apocalyptic journey.", "Acción / Drama", 2023, "1 Temporada", "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=600&auto=format&fit=crop", "", MediaCategory.SERIES, 8.8, "", ageRating = "18+"),
+            MediaItem("s2", "Breaking Bad", "Chemistry teacher turns meth maker.", "Crimen / Drama", 2008, "5 Temporadas", "https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=600&auto=format&fit=crop", "", MediaCategory.SERIES, 9.5, "", ageRating = "18+"),
+            MediaItem("s3", "Juego de Tronos", "Nine noble families fight for Westeros.", "Fantasía / Drama", 2011, "8 Temporadas", "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&auto=format&fit=crop", "", MediaCategory.SERIES, 9.2, ""),
+            MediaItem("s4", "Stranger Things", "Hawkins secret experiments and Upside Down.", "Sci-Fi / Terror", 2016, "4 Temporadas", "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=600&auto=format&fit=crop", "", MediaCategory.SERIES, 8.7, ""),
+            MediaItem("s5", "The Walking Dead", "Zombie apocalypse survivors.", "Terror / Drama", 2010, "11 Temporadas", "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=600&auto=format&fit=crop", "", MediaCategory.SERIES, 8.1, ""),
+            MediaItem("s6", "La Casa del Dragón", "Targaryen family civil war.", "Acción / Drama", 2022, "2 Temporadas", "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=600&auto=format&fit=crop", "", MediaCategory.SERIES, 8.5, "")
         )
     }
 

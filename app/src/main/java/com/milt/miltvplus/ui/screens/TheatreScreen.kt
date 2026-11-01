@@ -64,16 +64,14 @@ fun TheatreScreen(
 ) {
     val scrollState = rememberScrollState()
 
-    val sampleStream = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutback2012.mp4"
-
     val theatreList = uiState.theatreItems.ifEmpty {
         listOf(
-            MediaItem("th_1", "Hamilton: The Musical", "Alexander Hamilton story on Broadway.", "Musical / Drama", 2020, "2h 40m", "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?w=600&auto=format&fit=crop", "", MediaCategory.THEATRE, 8.5, sampleStream, isFeatured = true),
-            MediaItem("th_2", "El Rey León", "Classic Broadway production.", "Musical / Drama", 2021, "2h 20m", "https://images.unsplash.com/photo-1503095396549-807759245b35?w=600&auto=format&fit=crop", "", MediaCategory.THEATRE, 8.9, sampleStream),
-            MediaItem("th_3", "La Bella y la Bestia", "Live musical spectacle.", "Comedia / Fantasía", 2019, "2h 15m", "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=600&auto=format&fit=crop", "", MediaCategory.THEATRE, 8.6, sampleStream),
-            MediaItem("th_4", "Romeo y Julieta", "Classic theatrical tragedy.", "Clásicos / Drama", 2022, "2h 10m", "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&auto=format&fit=crop", "", MediaCategory.THEATRE, 8.4, sampleStream),
-            MediaItem("th_5", "Matilda: El Musical", "RSC Matilda live show.", "Musical / Comedia", 2022, "2h 18m", "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600&auto=format&fit=crop", "", MediaCategory.THEATRE, 8.7, sampleStream),
-            MediaItem("th_6", "El Fantasma de la Ópera", "Royal Albert Hall 25th Anniversary.", "Musical / Ópera", 2011, "2h 38m", "https://images.unsplash.com/photo-1469488865564-c2de10f69f96?w=600&auto=format&fit=crop", "", MediaCategory.THEATRE, 8.8, sampleStream)
+            MediaItem("th_1", "Hamilton: The Musical", "Alexander Hamilton story on Broadway.", "Musical / Drama", 2020, "2h 40m", "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?w=600&auto=format&fit=crop", "", MediaCategory.THEATRE, 8.5, "", isFeatured = true),
+            MediaItem("th_2", "El Rey León", "Classic Broadway production.", "Musical / Drama", 2021, "2h 20m", "https://images.unsplash.com/photo-1503095396549-807759245b35?w=600&auto=format&fit=crop", "", MediaCategory.THEATRE, 8.9, ""),
+            MediaItem("th_3", "La Bella y la Bestia", "Live musical spectacle.", "Comedia / Fantasía", 2019, "2h 15m", "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=600&auto=format&fit=crop", "", MediaCategory.THEATRE, 8.6, ""),
+            MediaItem("th_4", "Romeo y Julieta", "Classic theatrical tragedy.", "Clásicos / Drama", 2022, "2h 10m", "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&auto=format&fit=crop", "", MediaCategory.THEATRE, 8.4, ""),
+            MediaItem("th_5", "Matilda: El Musical", "RSC Matilda live show.", "Musical / Comedia", 2022, "2h 18m", "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600&auto=format&fit=crop", "", MediaCategory.THEATRE, 8.7, ""),
+            MediaItem("th_6", "El Fantasma de la Ópera", "Royal Albert Hall 25th Anniversary.", "Musical / Ópera", 2011, "2h 38m", "https://images.unsplash.com/photo-1469488865564-c2de10f69f96?w=600&auto=format&fit=crop", "", MediaCategory.THEATRE, 8.8, "")
         )
     }
 

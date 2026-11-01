@@ -72,15 +72,13 @@ fun SportsScreen(
     onFavoriteToggle: (String) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val sampleStream = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
-
     val sportsList = uiState.sportsEvents.ifEmpty {
         listOf(
-            SportsEvent("sp_1", "ARG vs BRA - Eliminatorias CONMEBOL", "CONMEBOL World Cup Qualifiers", SportsStatus.LIVE, "Live 72'", "Argentina", "", "Brasil", "", "1 - 0", "TyC Sports / TV Pública", sampleStream, isFavorite = true),
-            SportsEvent("sp_2", "Real Madrid vs Barcelona - LaLiga", "LaLiga Santander", SportsStatus.LIVE, "Live 35'", "Real Madrid", "", "FC Barcelona", "", "2 - 1", "ESPN 1 HD", sampleStream, isFavorite = true),
-            SportsEvent("sp_3", "Boca Juniors vs River Plate - Superclásico", "Liga Profesional Argentina", SportsStatus.UPCOMING, "Hoy 21:00", "Boca Juniors", "", "River Plate", "", "0 - 0", "TNT Sports", sampleStream),
-            SportsEvent("sp_4", "UFC 296 - Edwards vs Covington", "UFC World Championship", SportsStatus.UPCOMING, "Mañana 22:00", "Leon Edwards", "", "Colby Covington", "", "0 - 0", "Star+ / Fox Sports", sampleStream),
-            SportsEvent("sp_5", "F1 Abu Dhabi Grand Prix", "Formula 1", SportsStatus.ENDED, "Finalizado", "Verstappen", "", "Leclerc", "", "P1: VER", "Fox Sports 1", sampleStream, isFavorite = true)
+            SportsEvent("sp_1", "ARG vs BRA - Eliminatorias CONMEBOL", "CONMEBOL World Cup Qualifiers", SportsStatus.LIVE, "Live 72'", "Argentina", "", "Brasil", "", "1 - 0", "TyC Sports / TV Pública", "", isFavorite = true),
+            SportsEvent("sp_2", "Real Madrid vs Barcelona - LaLiga", "LaLiga Santander", SportsStatus.LIVE, "Live 35'", "Real Madrid", "", "FC Barcelona", "", "2 - 1", "ESPN 1 HD", "", isFavorite = true),
+            SportsEvent("sp_3", "Boca Juniors vs River Plate - Superclásico", "Liga Profesional Argentina", SportsStatus.UPCOMING, "Hoy 21:00", "Boca Juniors", "", "River Plate", "", "0 - 0", "TNT Sports", ""),
+            SportsEvent("sp_4", "UFC 296 - Edwards vs Covington", "UFC World Championship", SportsStatus.UPCOMING, "Mañana 22:00", "Leon Edwards", "", "Colby Covington", "", "0 - 0", "Star+ / Fox Sports", ""),
+            SportsEvent("sp_5", "F1 Abu Dhabi Grand Prix", "Formula 1", SportsStatus.ENDED, "Finalizado", "Verstappen", "", "Leclerc", "", "P1: VER", "Fox Sports 1", "", isFavorite = true)
         )
     }
 

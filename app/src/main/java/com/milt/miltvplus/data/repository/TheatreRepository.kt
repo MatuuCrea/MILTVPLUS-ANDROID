@@ -7,8 +7,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 
 class TheatreRepository {
 
-    private val sampleStreamUrl = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutback2012.mp4"
-
     private val theatreItems = MutableStateFlow(
         listOf(
             MediaItem(
@@ -22,7 +20,7 @@ class TheatreRepository {
                 backdropUrl = "https://images.unsplash.com/photo-1469488865564-c2de10f69f96?w=1200&auto=format&fit=crop",
                 category = MediaCategory.THEATRE,
                 rating = 8.5,
-                streamUrl = sampleStreamUrl,
+                streamUrl = "", // Stream de reproducción legítimo no configurado en demo
                 directorOrCast = "Lin-Manuel Miranda, Leslie Odom Jr., Phillipa Soo",
                 isFavorite = true,
                 isFeatured = true
@@ -38,7 +36,7 @@ class TheatreRepository {
                 backdropUrl = "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1200&auto=format&fit=crop",
                 category = MediaCategory.THEATRE,
                 rating = 8.8,
-                streamUrl = sampleStreamUrl,
+                streamUrl = "",
                 directorOrCast = "Ramin Karimloo, Sierra Boggess, Hadley Fraser",
                 isFavorite = true
             ),
@@ -53,7 +51,7 @@ class TheatreRepository {
                 backdropUrl = "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?w=1200&auto=format&fit=crop",
                 category = MediaCategory.THEATRE,
                 rating = 8.9,
-                streamUrl = sampleStreamUrl,
+                streamUrl = "",
                 directorOrCast = "Alfio Boe, Lea Salonga, Nick Jonas",
                 isFavorite = false
             ),
@@ -68,7 +66,7 @@ class TheatreRepository {
                 backdropUrl = "https://images.unsplash.com/photo-1503095396549-807759245b35?w=1200&auto=format&fit=crop",
                 category = MediaCategory.THEATRE,
                 rating = 8.6,
-                streamUrl = sampleStreamUrl,
+                streamUrl = "",
                 directorOrCast = "Cirque du Soleil Cast",
                 isFavorite = false
             )

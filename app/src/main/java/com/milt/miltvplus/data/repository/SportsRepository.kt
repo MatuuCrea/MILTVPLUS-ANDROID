@@ -7,8 +7,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 
 class SportsRepository {
 
-    private val sampleStreamUrl = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
-
     private val sportsEvents = MutableStateFlow(
         listOf(
             SportsEvent(
@@ -23,7 +21,7 @@ class SportsRepository {
                 team2Flag = "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=300&auto=format&fit=crop",
                 score = "1 - 0",
                 channelName = "TyC Sports / TV Pública",
-                streamUrl = sampleStreamUrl,
+                streamUrl = "", // Stream de transmisión en vivo no configurado en demo
                 isFavorite = true
             ),
             SportsEvent(
@@ -38,7 +36,7 @@ class SportsRepository {
                 team2Flag = "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=300&auto=format&fit=crop",
                 score = "2 - 1",
                 channelName = "ESPN 1 HD",
-                streamUrl = sampleStreamUrl,
+                streamUrl = "",
                 isFavorite = true
             ),
             SportsEvent(
@@ -53,7 +51,7 @@ class SportsRepository {
                 team2Flag = "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=300&auto=format&fit=crop",
                 score = "0 - 0",
                 channelName = "ESPN / Star+",
-                streamUrl = sampleStreamUrl,
+                streamUrl = "",
                 isFavorite = false
             ),
             SportsEvent(
@@ -68,23 +66,8 @@ class SportsRepository {
                 team2Flag = "https://images.unsplash.com/photo-1519861531473-9200262188bf?w=300&auto=format&fit=crop",
                 score = "0 - 0",
                 channelName = "ESPN / NBA TV",
-                streamUrl = sampleStreamUrl,
+                streamUrl = "",
                 isFavorite = false
-            ),
-            SportsEvent(
-                id = "sp_5",
-                title = "Gran Premio de Mónaco F1",
-                league = "Formula 1 Grand Prix",
-                status = SportsStatus.ENDED,
-                time = "Finalized",
-                team1Name = "Red Bull Racing",
-                team1Flag = "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=300&auto=format&fit=crop",
-                team2Name = "Ferrari",
-                team2Flag = "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=300&auto=format&fit=crop",
-                score = "P1: Verstappen",
-                channelName = "Fox Sports 1",
-                streamUrl = sampleStreamUrl,
-                isFavorite = true
             )
         )
     )

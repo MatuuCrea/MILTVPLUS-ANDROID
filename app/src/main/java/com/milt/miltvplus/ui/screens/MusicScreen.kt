@@ -68,15 +68,13 @@ fun MusicScreen(
 ) {
     val scrollState = rememberScrollState()
 
-    val sampleStream = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4"
-
     val playlistsList = uiState.musicPlaylists.ifEmpty {
         listOf(
-            MusicPlaylist("mus_1", "Éxitos 2024", "Pop & Chart", 50, "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&auto=format&fit=crop", "Los mejores hits globales", sampleStream, true, true),
-            MusicPlaylist("mus_2", "Rock Clásico", "Rock 80s 90s", 65, "https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?w=600&auto=format&fit=crop", "Guns N Roses, Queen, AC/DC, Soda Stereo", sampleStream, true),
-            MusicPlaylist("mus_3", "Reggaetón & Urbano", "Latino / Flow", 42, "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600&auto=format&fit=crop", "Bad Bunny, Karol G, Feid, Bizarrap", sampleStream, true),
-            MusicPlaylist("mus_4", "Lo Mejor del 2024", "Top Global", 38, "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&auto=format&fit=crop", "Canciones del año en reproducciones", sampleStream),
-            MusicPlaylist("mus_5", "Música Latina", "Pop & Salsa", 45, "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&auto=format&fit=crop", "Ritmos latinos para todo momento", sampleStream)
+            MusicPlaylist("mus_1", "Éxitos 2024", "Pop & Chart", 50, "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&auto=format&fit=crop", "Los mejores hits globales", "", true, true),
+            MusicPlaylist("mus_2", "Rock Clásico", "Rock 80s 90s", 65, "https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?w=600&auto=format&fit=crop", "Guns N Roses, Queen, AC/DC, Soda Stereo", "", true),
+            MusicPlaylist("mus_3", "Reggaetón & Urbano", "Latino / Flow", 42, "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600&auto=format&fit=crop", "Bad Bunny, Karol G, Feid, Bizarrap", "", true),
+            MusicPlaylist("mus_4", "Lo Mejor del 2024", "Top Global", 38, "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&auto=format&fit=crop", "Canciones del año en reproducciones", ""),
+            MusicPlaylist("mus_5", "Música Latina", "Pop & Salsa", 45, "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&auto=format&fit=crop", "Ritmos latinos para todo momento", "")
         )
     }
 
