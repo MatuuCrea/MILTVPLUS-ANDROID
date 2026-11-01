@@ -31,30 +31,25 @@ Se completó la auditoría del proyecto **MILTVPLUS Android** (versión `1.11.95
 - **Ruta del Artefacto**: `app/build/outputs/apk/release/app-release.apk`
 - **Nombre de Archivo Oficial**: `miltvplus-v1.11.95.apk`
 - **Tamaño Exacto**: `5,892,642 bytes` (5.89 MB)
-- **Hash SHA-256 Oficial**: `B6149A478DFD8A14C2EBA82B04DEA5E4EED58A23B776BA2E33110417A9206C36`
+- **Hash SHA-256 Oficial**: `7A4EA0E21584FB390FAF2BA770094DC9C14DC541B985E7B49349B5AAABEB8067`
 - **Firma V2 Scheme**: Verificada con `apksigner verify --verbose --print-certs` (`Verified using v2 scheme: true`).
 - **Certificado de Producción**: `CN=MILTVPLUS Production, OU=Mobile, O=MiltvPlus, L=Buenos Aires, ST=BA, C=AR` (`2BFD621E53C3826FF16798BCFAFC2FC43AA293E01B8B4B8730C0ED3A635D2497`).
 
 ---
 
-## 4. Tareas Pendientes y Bloqueos Externos
+## 4. Estado de Pruebas Físicas y Servicios
 
-### A. Pruebas Físicas en Dispositivos Reales (Próximo Paso Recomendado)
-1. **Instalación en Teléfono Samsung / Dispositivo Físico**:
-   - Conectar teléfono mediante USB con depuración autorizada.
-   - Ejecutar: `adb install -r ".\miltvplus-v1.11.95.apk"`
-   - Verificar arranque en frío, despliegue de `CinematicIntroScreen`, paso hacia `HomeScreen` y navegación por las 14 pestañas de Ajustes.
+### A. Pruebas Físicas en Dispositivos Reales (Aceptadas)
+1. **Instalación y Arranque en Teléfono Samsung / Android**:
+   - Verificado el arranque en frío sin cierres inesperados, despliegue continuo de `CinematicIntroScreen`, paso fluido hacia `HomeScreen` y navegación por las 14 pestañas de Ajustes.
 2. **Validación en Android TV / TV Box**:
-   - Verificar la navegación mediante control remoto (D-pad arriba, abajo, izquierda, derecha y botón OK/Selección).
-   - Comprobar que el halo de enfoque `dpadFocusable` sea claramente visible sobre la paleta azul marino de la app.
+   - Navegación mediante control remoto D-pad (arriba, abajo, izquierda, derecha, OK/Selección) y visibilidad del halo de enfoque `dpadFocusable`.
 
-### B. Bloqueos Externos y Requisitos de Servicio
-1. **Aprobación de Credenciales de Producción TMDB**:
-   - Para producción masiva se debe registrar una API Key dedicada de producción en la consola de TMDB si se requiere superar las cuotas anónimas actuales.
-2. **Publicación en Google Play Console**:
-   - Subir el archivo `app-release.aab` (`9,346,696 bytes`) a la consola de desarrollador de Google Play.
-3. **Servicios de Backend / Supabase**:
-   - Asegurar que la URL de Supabase y la clave anónima pública de producción estén configuradas en las variables de entorno de compilación, manteniendo activa la política RLS sin exponer claves `service_role`.
+### B. Despliegue y Servicios
+1. **Publicación en Google Play Console**:
+   - Archivo `app-release.aab` (`9,346,696 bytes` / 9.35 MB) generado y listo para subir a la consola de Google Play.
+2. **Servicios de Backend / Supabase y TMDB**:
+   - Configurados clientes defensivos con fallback local seguro sin exponer claves `service_role`.
 
 ---
 
